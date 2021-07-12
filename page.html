@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<head>
+   <meta charset="UTF-8" />
+   <title>please, don't be ugly</title>
+   <link rel="stylesheet" href="style.css">
+   <!--<script type="text/javascript" src="fileWork.js"></script>	-->
+</head>
+<body>
+    <div class="mainBlock">
+        <div>
+            <!-- Fix user name, font,style-->
+            <span id="user_name" class="userName" ></span>
+            <button onclick="logOut()" class="btn"> Выйти </button> <br>
+        </div>
+        <div>
+        <form id="my" method="post">
+
+            <!-- шапка -->
+            <div>
+                <input name="name" autocomplete="off" list="characterList" placeholder="Имя" style="top: 145px; left: 100px; width:420px;height:40px;" />
+                <input name="class" placeholder="Класс" list="classList" style="top: 120px; left: 550px; width:140px;height:28px;text-align:left;" />
+                <input name="race" placeholder="Раса" list="raceList" style="top: 172px; left: 550px; width:200px;height:28px;text-align:left;" />
+                <input name="alignment" style="top: 172px; left: 755px; width:160px;height:28px;" />
+                <input name="exp" value="0" style="top: 172px;left: 950px;width: 100px;height: 28px;" />
+                <input name="level" value="1" style="top: 172px; left: 1100px; width:35px;height:28px;" />
+            </div>
+
+            <!-- характеристики -->
+            <div class="mod">
+                <input name="strength" value="0" />
+                <input name="dexterity" value="0" />
+                <input name="constitution" value="0" />
+                <input name="intelligence" value="0" />
+                <input name="wisdom" value="0" />
+                <input name="charisma" value="0" />
+            </div>
+            <div class="characteristics">
+                <input name="str" type="text" placeholder="10" />
+                <input name="dex" type="text" placeholder="10" />
+                <input name="con" type="text" placeholder="10" />
+                <input name="int" type="text" placeholder="10" />
+                <input name="wis" type="text" placeholder="10" />
+                <input name="cha" type="text" placeholder="10" />
+            </div>
+            <input name="passPerception" value="12" style="top: 1215px; left: 68px; width:40px;height:40px;" />
+
+            <!-- центральный блок -->
+            <div>
+                <input name="complexity" style="top: 278px; left: 203px; width:40px;height:40px;" />
+                <input name="arcl" style="top: 335px; left: 485px; width:40px;height:40px; font-size: 18pt" />
+                <input name="tarcl" placeholder="0" style="top: 335px; left: 600px; width:40px;height:40px;" />
+                <input name="init" style="top: 300px; left: 690px; width:90px;height:65px; font-size:18pt;" />
+                <input name="hpmax" placeholder="Хиты" style="top: 450px; left: 475px; width:60px;height:40px; font-size:18pt" />
+                <input name="hpcurr" style="top: 427px; left: 725px; width:50px;height:40px;" />
+                <input name="thp" placeholder="+0" style="top: 488px; left: 725px; width:50px;height:40px;" />
+                <input name="exhaustion" style="top: 555px; left: 465px; width:85px;height:65px;" />
+                <input name="vision" style="top: 555px; left: 580px; width:85px;height:65px;" />
+                <input name="darkVision" type="checkbox" style="top: 553px; left: 582px; width:15px;height:15px;" />
+                <input name="speed" style="top: 555px; left: 695px; width:85px;height:65px;" />
+                <div class="dices">
+                    <input name="hitdice1" />
+                    <input name="hitdice2" />
+                    <input name="hitdice1m" />
+                    <input name="hitdice2m" />
+                    <input name="hitdice1c" />
+                    <input name="hitdice2c" />
+                </div>
+                <div class="checkBlock">
+                    <input name="successes1" type="checkbox" />
+                    <input name="successes2" type="checkbox" />
+                    <input name="successes3" type="checkbox" />
+                    <input name="failures1" type="checkbox" />
+                    <input name="failures2" type="checkbox" />
+                    <input name="failures3" type="checkbox" />
+                </div>
+            </div>
+            <!-- спасброски -->
+            <div>
+                <input name="bonus" value="+2" style="top: 358px; left: 204px; width:40px;height:40px;" />
+                <div class="spasCheck">
+                    <input name="strs" type="checkbox" />
+                    <input name="dexs" type="checkbox" />
+                    <input name="cons" type="checkbox" />
+                    <input name="ints" type="checkbox" />
+                    <input name="wiss" type="checkbox" />
+                    <input name="chas" type="checkbox" />
+                </div>
+                <div class="spasVal">
+                    <input name="strsn" value="" />
+                    <input name="dexsn" value="" />
+                    <input name="consn" value="" />
+                    <input name="intsn" value="" />
+                    <input name="wissn" value="" />
+                    <input name="chasn" value="" />
+                </div>
+            </div>
+            <!-- навыки -->
+            <div class="skillCheck1">
+                <input name="Acrobatics" type="checkbox" />
+                <input name="Investigation" type="checkbox" />
+                <input name="Athletics" type="checkbox" />
+                <input name="Perception" type="checkbox" />
+                <input name="Survival" type="checkbox" />
+                <input name="Performance" type="checkbox" />
+                <input name="Intimidation" type="checkbox" />
+                <input name="History" type="checkbox" />
+                <input name="sleightOfHand" type="checkbox" />
+            </div>
+            <div class="skillCheck2">
+                <input name="Arcana" type="checkbox" />
+                <input name="Medicine" type="checkbox" />
+                <input name="Deception" type="checkbox" />
+                <input name="Nature" type="checkbox" />
+                <input name="Insight" type="checkbox" />
+                <input name="Religion" type="checkbox" />
+                <input name="Stealth" type="checkbox" />
+                <input name="Persuasion" type="checkbox" />
+                <input name="AnimalHandling" type="checkbox" />
+            </div>
+            <div class="skilVal1">
+                <input name="AcrobaticsN" value="" />
+                <input name="InvestigationN" value="" />
+                <input name="AthleticsN" value="" />
+                <input name="PerceptionN" value="" />
+                <input name="SurvivalN" value="" />
+                <input name="PerformanceN" value="" />
+                <input name="IntimidationN" value="" />
+                <input name="HistoryN" value="" />
+                <input name="sleightOfHandN" value="" />
+            </div>
+            <div class="skilVal2">
+                <input name="ArcanaN" value="" />
+                <input name="MedicineN" value="" />
+                <input name="DeceptionN" value="" />
+                <input name="NatureN" value="" />
+                <input name="InsightN" value="" />
+                <input name="ReligionN" value="" />
+                <input name="StealthN" value="" />
+                <input name="PersuasionN" value="" />
+                <input name="AnimalHandlingN" value="" />
+            </div>
+
+            <!-- владения -->
+            <div>
+                <div class="block2">
+                    <input name="armor1" type="checkbox" />
+                    <input name="armor2" type="checkbox" />
+                    <input name="armor3" type="checkbox" />
+                    <input name="armor4" type="checkbox" />
+                    <input name="weapon1" type="checkbox" />
+                    <input name="weapon2" type="checkbox" />
+                    <input name="weapon3" type="checkbox" />
+                </div>
+                <input name="weaponOther" style="top: 1299px; left: 317px; width:90px;height:20px;" />
+                <textarea name="tools" style="top: 1342px; left: 75px; width:335px;height:45px; text-align: left; font-size: 13pt;"></textarea>
+                <textarea name="languages" style="top: 1427px; left: 68px; width:345px;height:50px; text-align: left; font-size: 13pt;"></textarea>
+                <textarea name="skills" style="top: 1510px; left: 68px; width:345px;height:155px; text-align: left; font-size: 13pt;"></textarea>
+            </div>
+            <!-- снаряжение -->
+            <div>
+                <div class="armor">
+                    <input name="armor" list="armorList" style="width:140px;height:35px;font-size:12pt" />
+                    <input name="armorClass" value="" />
+                    <input name="maxDex" value="" />
+                    <input name="needStr" value="" />
+                    <input name="shield" value="" />
+                </div>
+                <input name="pomeha" type="checkbox" style="top: 1217px; left: 545px; width:15px;height:15px;" />
+                <div class="money">
+                    <input name="mm" />
+                    <input name="sm" />
+                    <input name="em" />
+                    <input name="zm" />
+                    <input name="pm" />
+                </div>
+                <div class="materials">
+                    <input name="materials1" />
+                    <input name="materialsn1" style="width:60px" />
+                    <input name="materials2" />
+                    <input name="materialsn2" style="width:60px" />
+                    <input name="materials3" />
+                    <input name="materialsn3" style="width:60px" />
+                    <input name="materials4" />
+                    <input name="materialsn4" style="width:60px" />
+                    <input name="materials5" />
+                    <input name="materialsn5" style="width:60px" />
+                    <input name="materials6" />
+                    <input name="materialsn6" style="width:60px" />
+                </div>
+                <div class="artifact">
+                    <input name="artifact1" />
+                    <input name="artifact2" />
+                    <input name="artifact3" />
+                </div>
+            </div>
+            <!-- способности -->
+            <div>
+                <div class="featureName">
+                    <input name="feature1" />
+                    <input name="feature2" />
+                    <input name="feature3" />
+                    <input name="feature4" />
+                    <input name="feature5" />
+                    <input name="feature6" />
+                    <input name="feature7" />
+                    <input name="feature8" />
+                </div>
+                <div class="featureRest">
+                    <input name="featureShort1" type="checkbox" />
+                    <input name="featureShort2" type="checkbox" />
+                    <input name="featureShort3" type="checkbox" />
+                    <input name="featureShort4" type="checkbox" />
+                    <input name="featureShort5" type="checkbox" />
+                    <input name="featureShort6" type="checkbox" />
+                    <input name="featureShort7" type="checkbox" />
+                    <input name="featureShort8" type="checkbox" />
+                    <input name="featureLong1" type="checkbox" />
+                    <input name="featureLong2" type="checkbox" />
+                    <input name="featureLong3" type="checkbox" />
+                    <input name="featureLong4" type="checkbox" />
+                    <input name="featureLong5" type="checkbox" />
+                    <input name="featureLong6" type="checkbox" />
+                    <input name="featureLong7" type="checkbox" />
+                    <input name="featureLong8" type="checkbox" />
+                </div>
+                <div class="featureNum">
+                    <input name="featureMax1" />
+                    <input name="featureMax2" />
+                    <input name="featureMax3" />
+                    <input name="featureMax4" />
+                    <input name="featureMax5" />
+                    <input name="featureMax6" />
+                    <input name="featureMax7" />
+                    <input name="featureMax8" />
+                    <input name="featureCurr1" />
+                    <input name="featureCurr2" />
+                    <input name="featureCurr3" />
+                    <input name="featureCurr4" />
+                    <input name="featureCurr5" />
+                    <input name="featureCurr6" />
+                    <input name="featureCurr7" />
+                    <input name="featureCurr8" />
+                </div>
+            </div>
+            <!-- оружие -->
+            <div class="weapon">
+                <input name="weaponName1" value="" list="waeponList" style="top: 813px; left: 455px; width:170px;" />
+                <input name="damageType1" value="" style="top: 813px; left: 627px; width:100px;" />
+                <input name="distance1" value="" style="top: 813px; left: 730px; width:65px;" />
+                <input name="atkBonus1" value="" style="top: 845px; left: 455px; width:60px;" />
+                <input name="atkDice1" value="" style="top: 845px; left: 520px; width:55px;" />
+                <input name="dmgBonus1" value="" style="top: 845px; left: 577px; width:43px;" />
+                <input name="atk1" value="" style="top: 845px; left: 625px; width:50px;" />
+                <input name="dmg1" value="" style="top: 845px; left: 680px; width:50px;" />
+                <input name="attack1" type="button" class="btn2" value="атака" style="top: 846px; left: 730px;" />
+
+                <input name="weaponName2" list="waeponList" style="top: 892px; left: 455px; width:170px;" />
+                <input name="damageType2" value="" style="top: 892px; left: 627px; width:100px;" />
+                <input name="distance2" value="" style="top: 892px; left: 730px; width:65px;" />
+                <input name="atkBonus2" value="" style="top: 924px; left: 455px; width:60px;" />
+                <input name="atkDice2" value="" style="top: 924px; left: 520px; width:55px;" />
+                <input name="dmgBonus2" value="" style="top: 924px; left: 577px; width:43px;" />
+                <input name="atk2" value="" style="top: 924px; left: 625px; width:50px;" />
+                <input name="dmg2" value="" style="top: 924px; left: 680px; width:50px;" />
+                <input name="attack2" type="button" class="btn2" value="атака" style="top: 927px; left: 730px;" />
+
+                <input name="weaponName3" list="waeponList" style="top: 965px; left: 455px; width:170px;" />
+                <input name="damageType3" value="" style="top: 965px; left: 627px; width:100px;" />
+                <input name="distance3" value="" style="top: 965px; left: 730px; width:65px;" />
+                <input name="atkBonus3" value="" style="top: 997px; left: 455px; width:60px;" />
+                <input name="atkDice3" value="" style="top: 997px; left: 520px; width:55px;" />
+                <input name="dmgBonus3" value="" style="top: 997px; left: 577px; width:43px;" />
+                <input name="atk3" value="" style="top: 997px; left: 625px; width:50px;" />
+                <input name="dmg3" value="" style="top: 997px; left: 680px; width:50px;" />
+                <input name="attack3" type="button" class="btn2" value="атака" style="top: 999px; left: 730px;" />
+
+                <input name="weaponName4" list="waeponList" style="top: 1034px; left: 455px; width:170px;" />
+                <input name="damageType4" value="" style="top: 1034px; left: 627px; width:100px;" />
+                <input name="distance4" value="" style="top: 1034px; left: 730px; width:65px;" />
+                <input name="atkBonus4" value="" style="top: 1066px; left: 455px; width:60px;" />
+                <input name="atkDice4" value="" style="top: 1066px; left: 520px; width:56px;" />
+                <input name="dmgBonus4" value="" style="top: 1066px; left: 577px; width:43px;" />
+                <input name="atk4" value="" style="top: 1066px; left: 625px; width:50px;" />
+                <input name="dmg4" value="" style="top: 1066px; left: 680px; width:50px;" />
+                <input name="attack4" type="button" class="btn2" value="атака" style="top: 1069px; left: 730px; " />
+
+                <input name="ammunitionName1" value="" style="top: 1127px; left: 455px; width:105px;" />
+                <input name="ammunitionNum1" value="" style="top: 1127px; left: 570px; width:40px;" />
+                <input name="ammunitionName2" value="" style="top: 1127px; left: 640px; width:105px;" />
+                <input name="ammunitionNum2" value="" style="top: 1127px; left: 755px; width:40px;" />
+                <input name="ammunitionP1" type="button" value="+" class="btn3" style="top: 1161px; left: 573px;" />
+                <input type="button" name="ammunitionM1" value="-" class="btn3" style="top: 1161px; left: 597px;" />
+                <input name="ammunitionP2" type="button" value="+" class="btn3" style="top: 1161px; left: 755px;" />
+                <input type="button" name="ammunitionM2" value="-" class="btn3" style="top: 1161px; left: 780px;" />
+            </div>
+            <!-- черты -->
+            <textarea name="features" style="top: 650px; left: 835px; width:350px;height:525px; text-align: left; font-size: 13pt;"></textarea>
+            <textarea name="bag" style="top: 1218px; left: 835px; width:350px;height:425px; text-align: left; font-size: 13pt;"></textarea>
+
+            <!-- <button type="submit" >Save</button>
+            <input type="file" id="fileInput" accept="text/plain" /> -->
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+    <datalist id="classList"> </datalist>
+    <datalist id="waeponList"></datalist>
+    <datalist id="armorList"></datalist>
+    <datalist id="raceList"></datalist>
+    <datalist id="characterList"></datalist>
+
+
+</body>
+</html>
